@@ -1,0 +1,244 @@
+/* --- Grundlagen --- */
+:root {
+    --vendo-blue: #004a99;
+    --vendo-dark: #1a1a1a;
+    --brushed-metal: linear-gradient(180deg, #e0e0e0 0%, #f5f5f5 50%, #bebebe 100%);
+    --metal-hover: linear-gradient(180deg, #ffffff 0%, #e0e0e0 50%, #d0d0d0 100%);
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* --- Header & Nav --- */
+.header-container {
+    display: flex;
+    background: #222;
+    height: 120px;
+    border-bottom: 4px solid var(--vendo-blue);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-section {
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    text-decoration: none;
+}
+
+.main-logo { 
+    height: 100px; 
+    width: auto; 
+}
+
+/* NAVIGATION: Korrigiert für exakt gleiche Breite */
+.main-navigation { 
+    display: flex; 
+    flex-grow: 1; 
+    align-items: stretch;
+}
+
+.nav-item {
+    flex: 1;
+    flex-basis: 0; /* Zwingt alle auf exakt gleiche mathematische Breite */
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: var(--brushed-metal);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.2);
+    padding: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: var(--metal-hover);
+    color: var(--vendo-blue);
+}
+
+.nav-item.active { 
+    border-bottom: 6px solid var(--vendo-blue); 
+}
+
+/* --- Slideshow / Banner (Huber AG Stil) --- */
+/* --- Slideshow Fenster --- */
+.slideshow-window {
+    width: 100%;
+    height: 465px;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+.single-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex; /* Text links, Bild rechts */
+}
+
+.single-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Linke Textbox */
+.slide-overlay {
+    width: 35%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+    color: white;
+    box-sizing: border-box;
+}
+
+/* Rechter Bildbereich (Nur noch EIN Fenster) */
+.slide-media-container {
+    width: 65%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-media-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Das jeweils erste Bild einer Gruppe ist sofort sichtbar */
+.slide-media-container img:first-child {
+    opacity: 1;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-video.active {
+    opacity: 1;
+}
+
+/* --- Footer --- */
+.bottom-footer {
+    padding: 50px;
+    background: var(--vendo-dark);
+    color: white;
+    text-align: center;
+    border-top: 4px solid var(--vendo-blue);
+}
+
+.footer-container a { 
+    color: #888; 
+    margin: 0 15px; 
+    text-decoration: none; 
+}
+
+/* --- Content & Unterseiten --- */
+.page-title {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.page-title h1 {
+    font-size: 38px;
+    color: var(--vendo-dark);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.title-underline {
+    width: 60px;
+    height: 4px;
+    background-color: var(--vendo-blue);
+    margin: 15px auto 0;
+}
+
+.info-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    padding: 15px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.info-block.reverse { flex-direction: row-reverse; }
+
+.gray-bg {
+    background-color: #f7f7f7;
+    padding: 80px 10%;
+}
+
+.text-side { flex: 1; }
+.text-side h2 { font-size: 28px; color: var(--vendo-blue); margin-bottom: 20px; }
+.text-side p { line-height: 1.6; color: #555; font-size: 17px; }
+
+.image-side { flex: 1; }
+.image-side img {
+    width: 100%;
+    border-radius: 2px;
+}
+
+
+
+.image-side.inner-fade {
+    position: relative;
+    overflow: hidden;
+    display: block;
+
+    aspect-ratio: 4 / 3; 
+}
+
+.image-side.inner-fade img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #f0f0f0;
+
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+
+    border-radius: 2px;
+}
+
+
+.image-side.inner-fade img.inner-active {
+    opacity: 1;
+}
