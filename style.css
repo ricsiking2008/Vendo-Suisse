@@ -269,3 +269,90 @@ strong{
 .image-side:hover img {
     transform: scale(1.03);
 }
+
+
+/* Unterseiten Automaten Style container und Bilder */
+
+
+.product-overview {
+    padding: 80px 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px; 
+}
+
+
+.product-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: #f9f9f9; 
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.product-card:hover {
+    background: #f0f0f0; 
+}
+
+
+.product-card .image-side {
+    flex: 1;
+    position: relative; 
+    height: 350px;      
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+
+.product-card .image-side img {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    opacity: 0;         
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease;
+}
+
+
+.product-card .text-side {
+    flex: 1.5;
+}
+
+.product-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+
+.btn-more {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #333; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-more:hover {
+    background-color: #555; 
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+.product-card .image-side img.inner-active {
+    opacity: 1;
+    position: relative; 
+}
+
+
+.product-card:hover .image-side img.inner-active {
+    transform: scale(1.03);
+}

@@ -47,3 +47,5 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }, 10000); // 10 Sekunden Takt
 });
+
+            
