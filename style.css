@@ -324,35 +324,40 @@ strong{
 
 
 .product-overview {
-    padding: 80px 10%;
-    display: flex;
-    flex-direction: column;
-    gap: 60px; 
+    padding: 60px 5%;
+    display: grid;
+    /* Erzeugt 4 Spalten auf Desktop, passt sich aber automatisch an */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; 
 }
 
 
 .product-card {
     display: flex;
+    flex-direction: column; /* Bild oben, Text unten - wie bei Würth */
     align-items: center;
-    gap: 40px;
-    background: #f9f9f9; 
-    padding: 20px;
-    border-radius: 12px;
+    text-align: center;
+    gap: 15px;
+    background: #ffffff; 
+    padding: 25px;
+    border-radius: 4px; /* Eckiger/Cleaner Look */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
 }
 
 .product-card:hover {
-    background: #f0f0f0; 
+    background: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-color: var(--vendo-blue);
 }
 
 
 .product-card .image-side {
-    flex: 1;
-    position: relative; 
-    height: 200px;      
     width: 100%;
-    overflow: hidden;
-    border-radius: 8px;
-    background-color: transparent; 
+    height: 180px; /* Kleinere, einheitliche Höhe */
+    flex: none;
 }
 
 
@@ -369,29 +374,28 @@ strong{
 
 
 .product-card .text-side {
-    flex: 1.5;
+    flex: none;
+    width: 100%;
 }
 
 .product-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 1.1rem; /* Kompakterer Titel */
+    margin-bottom: 15px;
+    min-height: 2.4em; /* Sorgt dafür, dass Buttons immer auf gleicher Höhe sind */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 .btn-more {
-    display: inline-block;
-    padding: 12px 28px;
-    background-color: #333; 
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    width: 100%; /* Button über die ganze Kartenbreite */
+    box-sizing: border-box;
+    padding: 10px 15px;
+    font-size: 14px;
 }
 
 .btn-more:hover {
-    background-color: #555; 
     transform: translateY(-2px); 
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
