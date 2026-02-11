@@ -2,8 +2,8 @@
 :root {
     --vendo-blue: #004a99;
     --vendo-dark: #1a1a1a;
-    --brushed-metal: linear-gradient(180deg, #e0e0e0 0%, #f5f5f5 50%, #bebebe 100%);
-    --metal-hover: linear-gradient(180deg, #ffffff 0%, #e0e0e0 50%, #d0d0d0 100%);
+    --brushed-metal: linear-gradient(180deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
+    --metal-hover: linear-gradient(180deg, #004a99 0%, #36a7d4 50%, #004a99 100%);
 }
 
 body {
@@ -17,13 +17,12 @@ body {
 .header-container {
     display: flex;
     background: #ffffff;
-    height: 100px; 
+    height: 80px; 
     border-bottom: 4px solid var(--vendo-blue);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
-
 
 .logo-wrapper {
     display: flex;
@@ -40,8 +39,13 @@ body {
     justify-content: center;
     text-decoration: none;
     background: #ffffff;
-    border-right: 1px solid rgba(0,0,0,0.1);
-    height: 100%; 
+    height: 100%;
+    border-bottom: 6px solid transparent; /* Reserve space for the line */
+    transition: border-color 0.3s ease;
+}
+
+.logo-section:hover {
+    border-bottom-color: var(--vendo-blue);
 }
 
 .main-logo { 
@@ -59,18 +63,20 @@ body {
     transform: scale(1.05); 
 }
 
-.logo-text{
-    font-size: 14px;       
+.logo-text {
+    font-size: 18px;       
     font-weight: 700;
     color: #8a8a8a;       
     text-transform: uppercase;
     letter-spacing: 3px;   
-    line-height: 1;
+    line-height: 1;     
 }
 
+.logo-text:hover{
+    color: var(--vendo-blue);
+}
 
-
-/* NAVIGATION: Korrigiert für exakt gleiche Breite */
+/* NAVIGATION */
 .main-navigation { 
     display: flex; 
     flex-grow: 1; 
@@ -79,10 +85,10 @@ body {
 
 .nav-item {
     flex: 1;
-    flex-basis: 0; /* Zwingt alle auf exakt gleiche mathematische Breite */
+    flex-basis: 0;
     text-decoration: none;
     color: #333;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     background: var(--brushed-metal);
@@ -90,26 +96,31 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    border-right: 1px solid rgba(0,0,0,0.2);
     padding: 0 5px;
     transition: all 0.3s ease;
-    height : 100%;
+    height: 100%;
+    border-bottom: 6px solid transparent; 
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-.nav-item:hover, .nav-item.active {
-    background: var(--metal-hover);
-    color: var(--vendo-blue);
-}
 
 .nav-item.active { 
-    border-bottom: 6px solid var(--vendo-blue); 
+    color: var(--vendo-blue);
+    border-bottom-color: var(--vendo-blue);
 }
 
+/* LIGHT UP TEXT ON HOVER */
+.nav-item:hover {
+    color: var(--vendo-blue);
+    text-shadow: 0 0 5px rgba(0, 74, 153, 0.2); 
+    color: var(--vendo-blue);
+    border-bottom-color: var(--vendo-blue);
+}
 
 /* --- Slideshow Fenster --- */
 .slideshow-window {
     width: 100%;
-    height: 482px;
+    height: 502px;
     position: relative;
     overflow: hidden;
     background: #000;
@@ -123,7 +134,7 @@ body {
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    display: flex; /* Text links, Bild rechts */
+    display: flex;
 }
 
 .single-slide.active {
@@ -131,7 +142,6 @@ body {
     z-index: 2;
 }
 
-/* Linke Textbox */
 .slide-overlay {
     width: 35%;
     height: 100%;
@@ -144,7 +154,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Rechter Bildbereich (Nur noch EIN Fenster) */
 .slide-media-container {
     width: 65%;
     height: 100%;
@@ -163,7 +172,6 @@ body {
     transition: opacity 0.8s ease-in-out;
 }
 
-/* Das jeweils erste Bild einer Gruppe ist sofort sichtbar */
 .slide-media-container img:first-child {
     opacity: 1;
 }
@@ -197,301 +205,81 @@ body {
     text-decoration: none; 
 }
 
-/* --- Content & Unterseiten --- */
+/* --- Content & Unterseiten KOMPAKT --- */
 .page-title {
     text-align: center;
-    padding: 40px 5px;
+    padding: 30px 5% 10px 5%; /* Flachere Überschrift */
     background-color: #ffffff;
 }
 
 .page-title h1 {
-    font-size: 38px;
+    font-size: 26px; /* Kleiner für Kompaktheit */
     color: var(--vendo-dark);
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
 .title-underline {
-    width: 60px;
-    height: 4px;
+    width: 50px;
+    height: 3px;
     background-color: var(--vendo-blue);
-    margin: 15px auto 0;
+    margin: 10px auto 15px;
 }
 
+/* KOMPAKTER INFO BLOCK (DEIN WUNSCH-STYLE) */
 .info-block {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 80px;
-    padding: 15px 5%;
-    max-width: 1400px;
+    gap: 30px;
+    padding: 15px 5%; /* Sehr geringes Padding für flache Balken */
+    max-width: 1200px;
     margin: 0 auto;
+    min-height: 180px; /* Hält die Box bei ca. 180px */
+    overflow: visible; 
 }
 
 .info-block.reverse { flex-direction: row-reverse; }
 
 .gray-bg {
     background-color: #f7f7f7;
-    padding: 80px 10%;
 }
 
-.text-side { flex: 1; }
-.text-side h2 { font-size: 28px; color: var(--vendo-blue); margin-bottom: 20px; }
-.text-side p { line-height: 1.6; color: #555; font-size: 17px; }
-
-.image-side { flex: 1; }
-.image-side img {
-    width: 100%;
-    border-radius: 2px;
+/* Text-Bereich kompakt */
+.text-side { 
+    flex: 1.2; 
 }
 
-
-
-.image-side.inner-fade {
-    position: relative;
-    overflow: hidden;
-    display: block;
-    aspect-ratio: 4 / 3; 
-    background-color: transparent; 
-}
-
-.image-side.inner-fade img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background-color: transparent; 
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-    border-radius: 2px;
-}
-
-
-.image-side.inner-fade img.inner-active {
-    opacity: 1;
-}
-
-
-strong{
+.text-side h2 { 
+    font-size: 20px; 
+    color: var(--vendo-blue); 
+    margin-bottom: 8px; 
     font-weight: 700;
-    color: rgb(0, 0, 0);
 }
 
-
-.image-side {
-    overflow: hidden;
-    position: relative; 
+.text-side p { 
+    line-height: 1.4; 
+    color: #444; 
+    font-size: 14px; 
+    margin-bottom: 0;
 }
 
-
-
-.image-side img {
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
-    display: block;
-
-    width: auto;
-    max-width: 80%;       
-    max-height: 500px;     
-    margin: 0 auto;        
-    
-    height: auto;
-}
-
-
-
-.image-side:hover img {
-    transform: scale(1.03);
-}
-
-
-
-.image-side video {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-    border-radius: 2px;
-    display: block;
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-
-.image-side:hover video {
-    transform: scale(1.03);
-}
-
-
-
-.product-overview {
-    padding: 60px 5%;
-    display: grid;
-    /* Erzeugt 4 Spalten auf Desktop, passt sich aber automatisch an */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 30px; 
-}
-
-
-.product-card {
-    display: flex;
-    flex-direction: column; /* Bild oben, Text unten - wie bei Würth */
-    align-items: center;
-    text-align: center;
-    gap: 15px;
-    background: #ffffff; 
-    padding: 25px;
-    border-radius: 4px; /* Eckiger/Cleaner Look */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-    border: 1px solid #eee;
-}
-
-.product-card:hover {
-    background: #ffffff;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    border-color: var(--vendo-blue);
-}
-
-
-.product-card .image-side {
-    width: 100%;
-    height: 180px; /* Kleinere, einheitliche Höhe */
-    flex: none;
-}
-
-
-.product-card .image-side img {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-    opacity: 0;         
-    transition: opacity 0.8s ease-in-out, transform 0.8s ease;
-}
-
-
-.product-card .text-side {
-    flex: none;
-    width: 100%;
-}
-
-.product-card h3 {
-    font-size: 1.1rem; /* Kompakterer Titel */
-    margin-bottom: 15px;
-    min-height: 2.4em; /* Sorgt dafür, dass Buttons immer auf gleicher Höhe sind */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.btn-more {
-    width: 100%; /* Button über die ganze Kartenbreite */
-    box-sizing: border-box;
-    padding: 10px 15px;
-    font-size: 14px;
-}
-
-.btn-more:hover {
-    transform: translateY(-2px); 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-
-.product-card .image-side img.inner-active {
-    opacity: 1;
-    position: relative; 
-}
-
-
-.product-card:hover .image-side img.inner-active {
-    transform: scale(1.03);
-}
-
-/* Dropdown nav style*/
-.dropdown {
-    position: relative;
-    padding: 0 !important; 
-}
-
-.dropdown-trigger {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
-
-.dropdown-content {
-    display: none; 
-    position: absolute;
-    top: 100%; 
-    left: 0;
-    width: 250px; 
-    background: #f9f9f9;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 1001;
-    border-bottom: 3px solid var(--vendo-blue);
-}
-
-
-.dropdown-content a {
-    color: #333;
-    padding: 15px 20px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    font-size: 14px;
-    text-transform: none; 
-    border-bottom: 1px solid #ddd;
-}
-
-    
-.dropdown-content a:hover {
-    background-color: #eee;
-    color: var(--vendo-blue);
-    transform: scale(1.02);
-}
-
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-trigger::after {
-    content: ' ▼';
-    font-size: 10px;
-    margin-left: 5px;
-    vertical-align: middle;
-}
-
-/* Rotationsaumotat style */
-.subtitle {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--vendo-blue);
-    margin-top: 10px;
-    text-align: center;
-}
-
-/* Előnyök listája a szöveg mellett */
+/* Listen zweispaltig machen, um Platz nach unten zu sparen */
 .benefit-list {
     list-style: none;
     padding: 0;
-    margin-top: 25px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* WICHTIG: Teilt Liste in 2 Spalten */
+    gap: 5px 20px;
 }
 
 .benefit-list li {
-    padding-left: 30px;
+    padding-left: 20px;
     position: relative;
-    margin-bottom: 12px;
-    font-weight: 600;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.2;
 }
 
 .benefit-list li::before {
@@ -502,195 +290,83 @@ strong{
     font-weight: bold;
 }
 
-/* 4 oszlopos rács a technikai adatoknak */
-.details-grid {
+/* Bild-Bereich kompakt */
+.image-side { 
+    flex: 0.8; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 160px; /* Erzwingt flache Bilder */
+}
+
+.image-side img, .image-side video {
+    max-height: 150px; /* Deckelt die Bildhöhe */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease;
+}
+
+/* Speziell für Unterseiten-Slider */
+.image-side.inner-fade {
+    position: relative;
+    width: 100%;
+    height: 160px;
+}
+
+.image-side.inner-fade img {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.image-side.inner-fade img.inner-active {
+    opacity: 1;
+}
+
+/* --- Produkt Übersicht (Karten) --- */
+.product-overview {
+    padding: 40px 5%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    padding: 60px 10%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
 }
 
-.detail-card {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    border-top: 4px solid var(--vendo-blue);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+.product-card {
+    background: #ffffff; 
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 1px solid #eee;
 }
 
-.detail-card h3 {
-    font-size: 18px;
-    color: var(--vendo-dark);
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
+.product-card .image-side {
+    height: 140px;
 }
 
-.detail-card ul {
-    list-style: disc;
-    padding-left: 20px;
-    color: #555;
-    font-size: 15px;
+/* Dropdown Styles */
+.dropdown { position: relative; padding: 0 !important; }
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    top: 100%; left: 0;
+    width: 220px; 
+    background: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1001;
 }
+.dropdown:hover .dropdown-content { display: block; }
 
-.detail-card li {
-    margin-bottom: 8px;
-}
-
-.detail-card:hover {
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    transform: translateY(-3px);
-    transition: all 0.3s ease;
-}
-
-
-/* Back knopf und nav automaten */
-.top-header .header-container {
-    height: 100px; 
-}
-
-
-
-
-
-.details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 80px 10%;
-    background-color: #f4f4f4; 
-}
-
-.detail-card {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 4px; 
-    border-left: 5px solid var(--vendo-blue); 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-}
-
-.detail-card:hover {
-    transform: translateY(-5px);
-}
-
-.detail-card h3 {
-    color: var(--vendo-dark);
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-
-/* --- RESPONSIVE DESIGN --- */
-
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    /* 1. Header entspannen */
-    .header-container {
-        flex-direction: column;
-        height: auto !important; /* Wichtig: hebt die 100px/110px auf */
-        position: relative !important; /* Nicht sticky auf Mobile, damit man Platz hat */
-    }
-
-    /* 2. Logo Sektion aufräumen */
-    .logo-section {
-        width: 100%;
-        padding: 15px 0;
-        border-right: none;
-        border-bottom: 2px solid var(--vendo-blue);
-        display: flex;
-        justify-content: center;
-    }
-
-    .logo-wrapper {
-        margin: 0 !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .main-logo {
-        height: 50px !important; /* Viel kleiner für Mobile */
-        margin-bottom: 5px !important;
-        margin-top: 0 !important;
-    }
-
-    .logo-text {
-        font-size: 14px !important;
-        color: #8a8a8a;
-    }
-
-    /* 3. Navigation kompakt stapeln */
-    .main-navigation {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-item {
-        width: 100%;
-        height: 40px !important; /* Sehr flach, damit es nicht den Screen füllt */
-        line-height: 40px;
-        font-size: 10px !important; /* Kleinere Schrift */
-        border-right: none;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-        padding: 0 !important;
-        background: #f5f5f5; /* Simpler Hintergrund statt fettem Verlauf */
-    }
-
-    .nav-item:last-child {
-        border-bottom: 4px solid var(--vendo-blue); /* Abschluss des Menüs */
-    }
-
-    /* 4. Slideshow/Content nachrücken */
-    .slideshow-window {
-        height: 350px !important;
-    }
-
-    .slide-overlay {
-        padding: 20px !important;
-    }
-
-    .slide-overlay h1 {
-        font-size: 20px !important;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Info-Blöcke stapeln statt nebeneinander */
-    .info-block, 
-    .info-block.reverse {
+    .header-container { flex-direction: column; height: auto !important; }
+    .main-navigation { flex-direction: column; }
+    .info-block, .info-block.reverse {
         flex-direction: column !important;
-        padding: 40px 20px !important; /* Weniger seitlicher Abstand auf Mobile */
-        gap: 20px !important;
+        padding: 30px 20px !important;
     }
-
-    .text-side, 
-    .image-side {
-        width: 100% !important; /* Volle Breite für beide */
-        flex: none !important;
-    }
-
-    /* Text-Ausrichtung auf Mobile */
-    .text-side {
-        text-align: center; /* Sieht auf Mobile oft besser aus */
-    }
-
-    .text-side p {
-        font-size: 15px !important; /* Etwas kleiner für bessere Lesbarkeit */
-        line-height: 1.5;
-    }
-
-    .image-side img {
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
-    }
-
-    /* Verhindern, dass Titel wie "nächste Generation Briefkasten" das Layout sprengen */
-    .page-title h1 {
-        font-size: 24px !important;
-        padding: 0 10px;
-        word-wrap: break-word;
-    }
+    .benefit-list { grid-template-columns: 1fr; } /* Auf Mobile wieder einspaltig */
 }
