@@ -11,6 +11,13 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
 }
 
 /* --- Header & Nav --- */
@@ -28,8 +35,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; 
-    margin-top: -40px;
+    position: relative;
+    width: 200px;
 }
 
 .logo-section {
@@ -49,13 +56,14 @@ body {
 }
 
 .main-logo { 
-    height: 170px; 
+    height: 150px; 
     width: auto;
     margin-bottom: -70px; 
     display: block;
     mix-blend-mode: multiply;
     transition: transform 0.3s ease;
-    position: relative;
+    position: absolute;
+    top: -30px; 
     z-index: 1001;
 }
 
@@ -69,7 +77,10 @@ body {
     color: #8a8a8a;       
     text-transform: uppercase;
     letter-spacing: 3px;   
-    line-height: 1;     
+    line-height: 1; 
+    margin-top: 50px; /* Pushes the text down below the floating logo */
+    position: relative;
+    z-index: 1002;    
 }
 
 .logo-text:hover{
@@ -120,7 +131,7 @@ body {
 /* --- Slideshow Fenster --- */
 .slideshow-window {
     width: 100%;
-    height: 502px;
+    height: 100%;
     position: relative;
     overflow: hidden;
     background: #000;
