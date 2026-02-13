@@ -64,29 +64,29 @@
         <div class="text-side" style="flex: 1.2; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
             <h3 style="margin-top: 0; margin-bottom: 20px;">Nachricht senden</h3>
             
-            <form action="https://formspree.io/f/xzdazpak" method="POST" class="contact-form">
+            <form action="send_mail.php" method="POST" class="contact-form">
                 <div style="margin-bottom: 15px;">
-                    <label style="display:block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Name</label>
-                    <input type="text" name="name" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; box-sizing: border-box;">
-                </div>
+                <label style="display:block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Name</label>
+                <input type="text" name="name" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; box-sizing: border-box;">
+            </div>
 
-                <div style="margin-bottom: 15px;">
-                    <label style="display:block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">E-Mail Adresse</label>
-                    <input type="email" name="_replyto" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; box-sizing: border-box;">
-                </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Ihre E-Mail Adresse</label>
+                <input type="email" name="email" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; box-sizing: border-box;">
+            </div>
 
-                <div style="margin-bottom: 15px;">
-                    <label style="display:block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Betreff</label>
-                    <input type="text" name="subject" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; box-sizing: border-box;">
-                </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Betreff</label>
+                <input type="text" name="subject" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; box-sizing: border-box;">
+            </div>
 
-                <div style="margin-bottom: 20px;">
-                    <label style="display:block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Ihre Nachricht</label>
-                    <textarea name="message" rows="5" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; box-sizing: border-box; resize: vertical;"></textarea>
-                </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display:block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Ihre Nachricht</label>
+                <textarea name="message" rows="5" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; box-sizing: border-box; resize: vertical;"></textarea>
+            </div>
 
-                <button type="submit" class="btn-more" style="width: 100%; border: none; cursor: pointer;">Nachricht jetzt senden</button>
-            </form>
+            <button type="submit" class="btn-more" style="width: 100%; border: none; cursor: pointer;">Nachricht jetzt senden</button>
+                    </form>
         </div>
     </div>
 </section>
@@ -97,7 +97,6 @@
                 <a href="agb.html">AGB</a> 
                 <a href="impressum.html">Impressum</a> 
                 <a href="datenschutz.html">Datenschutz</a>
-                <a href="cookies.html">Cookies</a>
             </div>
         </footer>
     </body>

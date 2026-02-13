@@ -78,7 +78,9 @@ header.top-header {
     transform: scale(1.05); 
 }
 
-
+main{
+    padding-top: 100px;
+}
 
 /* NAVIGATION */
 .main-navigation { 
@@ -86,6 +88,8 @@ header.top-header {
     flex-grow: 1; 
     align-items: stretch;
 }
+
+
 
 .nav-item {
     flex: 1;
@@ -161,6 +165,7 @@ header.top-header {
 }
 
 .hero-text-content {
+    margin-top: 40px;
     color: white;
     max-width: 600px;
     animation: fadeInUp 1s ease-out; /* Smooth entrance */
@@ -207,15 +212,15 @@ header.top-header {
 
 
 
-/* .slideshow-window {
+ .slideshow-window {
     width: 100%;
     height: 100%;
     position: relative;
     overflow: hidden;
     background: #000;
-} */
+} 
 
-/* .single-slide {
+ .single-slide {
     position: absolute;
     top: 0;
     left: 0;
@@ -277,7 +282,7 @@ header.top-header {
 
 .hero-video.active {
     opacity: 1;
-} */
+} 
 
 /* --- Footer --- */
 .bottom-footer {
@@ -319,11 +324,24 @@ header.top-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    padding: 15px 5%; /* Sehr geringes Padding für flache Balken */
-    max-width: 1200px;
+    gap: 50px;
+    padding: 40px 5%; /* Sehr geringes Padding für flache Balken */
+    max-width: 1600px;
     margin: 0 auto;
-    min-height: 180px; /* Hält die Box bei ca. 180px */
+    min-height: 200px; /* Hält die Box bei ca. 180px */
+    overflow: visible; 
+}
+
+.info-block.ueber-uns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 5px 5%; /* Sehr geringes Padding für flache Balken */
+    max-width: 1600px;
+    margin: 0 auto;
+    margin-top: 50px;
+    min-height: 20px; /* Hält die Box bei ca. 180px */
     overflow: visible; 
 }
 
@@ -350,6 +368,23 @@ header.top-header {
     color: #444; 
     font-size: 14px; 
     margin-bottom: 0;
+}
+
+
+.text-side.narrow-text {
+    max-width: 400px;   
+    flex: 0 1 auto;      
+}
+
+
+.text-side.narrow-text p {
+    line-height: 1.8;
+    font-size: 14px;
+    color: #444; 
+}
+
+.info-block:has(.narrow-text) {
+    gap: 300px; 
 }
 
 /* Listen zweispaltig machen, um Platz nach unten zu sparen */
@@ -380,18 +415,18 @@ header.top-header {
 
 /* Bild-Bereich kompakt */
 .image-side { 
-    flex: 0.8; 
+    flex: 1; 
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 160px; /* Erzwingt flache Bilder */
+    max-height: none; /* Erzwingt flache Bilder */
 }
 
 .image-side img, .image-side video {
-    max-height: 150px; /* Deckelt die Bildhöhe */
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
+    max-height: 300px; /* Deckelt die Bildhöhe */
+    width: 100%;
+    max-width: 400px;
+    object-fit: cover;
     border-radius: 4px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: transform 0.4s ease;
@@ -413,6 +448,54 @@ header.top-header {
 .image-side.inner-fade img.inner-active {
     opacity: 1;
 }
+
+.image-side img:hover {
+    transform: scale(1.05);
+}
+
+.image-side.small-image {
+    flex: 0.5; 
+}
+
+
+.image-side.small-image img {
+    max-height: 250px; 
+    width: auto;      
+}
+
+.banner-container.schlüsselausgabeautomat {
+    position: relative;
+    width: 100%;
+    height: 275px; 
+    overflow: hidden;
+}
+
+/* Wide Banner Section */
+.wide-banner {
+    width: 100%;
+}
+
+.banner-container {
+    position: relative;
+    max-width: 100%; 
+    margin: 0 auto;
+    height: 200px; 
+    overflow: hidden;
+    
+}
+
+.banner-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    transition: transform 1s ease;
+}
+
+.banner-container img:hover {
+    transform: scale(1.05);
+}
+
 
 /* --- Produkt Übersicht (Karten) --- */
 .product-overview {
@@ -447,6 +530,35 @@ header.top-header {
     z-index: 1001;
 }
 .dropdown:hover .dropdown-content { display: block; }
+
+
+
+.btn-more {
+    background-color: #0056b3; /* Your Vendo Blue */
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Makes the hover smooth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-more:hover {
+    background-color: #004494; /* Darker blue on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px); /* Lifts the button slightly */
+}
+
+.btn-more:active {
+    transform: translateY(0); /* Pushes it back down when clicked */
+}
+
+
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
