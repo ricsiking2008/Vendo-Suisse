@@ -1,6 +1,6 @@
 /* --- Grundlagen --- */
 :root {
-    --vendo-blue: #004a99;
+    --vendo-blue: #e98732;
     --vendo-dark: #1a1a1a;
     --brushed-metal: linear-gradient(180deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
     --metal-hover: linear-gradient(180deg, #004a99 0%, #36a7d4 50%, #004a99 100%);
@@ -13,6 +13,7 @@ body {
     background-color: #f0f0f0;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
 }
 
 html, body {
@@ -31,6 +32,15 @@ html, body {
     z-index: 1000;
 }
 
+header.top-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999; /* High number to stay above the hero image and text */
+    background-color: #ffffff; /* Ensures the nav isn't transparent when scrolling over images */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Optional: adds a nice shadow when it sticks */
+}
+
 .logo-wrapper {
     display: flex;
     flex-direction: column;
@@ -42,7 +52,7 @@ html, body {
 .logo-section {
     padding: 0 30px;
     display: flex;
-    align-items: flex-start; 
+    align-items: center; 
     justify-content: center;
     text-decoration: none;
     background: #ffffff;
@@ -56,14 +66,11 @@ html, body {
 }
 
 .main-logo { 
-    height: 150px; 
+    height: 110px; 
     width: auto;
-    margin-bottom: -70px; 
     display: block;
     mix-blend-mode: multiply;
     transition: transform 0.3s ease;
-    position: absolute;
-    top: -30px; 
     z-index: 1001;
 }
 
@@ -71,21 +78,7 @@ html, body {
     transform: scale(1.05); 
 }
 
-.logo-text {
-    font-size: 18px;       
-    font-weight: 700;
-    color: #8a8a8a;       
-    text-transform: uppercase;
-    letter-spacing: 3px;   
-    line-height: 1; 
-    margin-top: 50px; /* Pushes the text down below the floating logo */
-    position: relative;
-    z-index: 1002;    
-}
 
-.logo-text:hover{
-    color: var(--vendo-blue);
-}
 
 /* NAVIGATION */
 .main-navigation { 
@@ -115,7 +108,8 @@ html, body {
 }
 
 
-.nav-item.active { 
+.nav-item.active,
+.logo-section.active { 
     color: var(--vendo-blue);
     border-bottom-color: var(--vendo-blue);
 }
@@ -128,16 +122,100 @@ html, body {
     border-bottom-color: var(--vendo-blue);
 }
 
-/* --- Slideshow Fenster --- */
-.slideshow-window {
+
+
+/* FULL SCREEN HERO SECTION */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100%; 
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.hero-image-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center;
+    display: block;
+}
+
+/* THE OVERLAY (Adding depth and readability) */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+    display: flex;
+    align-items: flex-start;
+    padding: 0 10%;
+    padding-top: 80px;
+}
+
+.hero-text-content {
+    color: white;
+    max-width: 600px;
+    animation: fadeInUp 1s ease-out; /* Smooth entrance */
+}
+
+.hero-text-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero-text-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* THE CALL TO ACTION BUTTON */
+.cta-button {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #868684;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--vendo-blue);
+    transform: translateY(-3px);
+}
+
+/* ANIMATION */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+
+/* .slideshow-window {
     width: 100%;
     height: 100%;
     position: relative;
     overflow: hidden;
     background: #000;
-}
+} */
 
-.single-slide {
+/* .single-slide {
     position: absolute;
     top: 0;
     left: 0;
@@ -199,7 +277,7 @@ html, body {
 
 .hero-video.active {
     opacity: 1;
-}
+} */
 
 /* --- Footer --- */
 .bottom-footer {
@@ -207,7 +285,6 @@ html, body {
     background: var(--vendo-dark);
     color: white;
     text-align: center;
-    border-top: 4px solid var(--vendo-blue);
 }
 
 .footer-container a { 
