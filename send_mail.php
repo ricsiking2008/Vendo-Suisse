@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = trim($_POST["message"]);
 
     // --- CONFIGURATION ---
-    $recipient = "andras.sapi@vendoswiss.ch"; // Where the email goes
+    $recipient = "info@vendoswiss.ch"; // Where the email goes
     $email_subject = "Web-Kontakt: $subject_line";
     
     // Build the email content

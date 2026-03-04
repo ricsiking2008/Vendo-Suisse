@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 3. UNTERSEITEN SLIDER (Info-Blöcke)
     setInterval(() => {
-        const containers = document.querySelectorAll('.image-side.inner-fade');
+        const containers = document.querySelectorAll('.image-side.inner-fade, .product-visual-box.inner-fade');
         containers.forEach(container => {
             const images = container.querySelectorAll('img');
             if (images.length > 1) {
