@@ -66,7 +66,7 @@ header.top-header {
 }
 
 .main-logo { 
-    height: 140px; 
+    height: 100px; 
     width: auto;
     display: block;
     mix-blend-mode: multiply;
@@ -545,6 +545,13 @@ header.top-header {
     overflow: hidden;
 }
 
+.banner-container.ausgabeschrank{
+    position: relative;
+    width: 100%;
+    height: 300px; 
+    overflow: hidden;
+}
+
 /* Wide Banner Section */
 .wide-banner {
     width: 100%;
@@ -576,7 +583,7 @@ header.top-header {
 .product-overview {
     padding: 40px 5%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(4, 1fr); 
     gap: 20px; 
     align-items: stretch;
 }
@@ -724,6 +731,7 @@ header.top-header {
     margin: 0 auto;
 }
 
+
 .detail-card {
     background: #ffffff;
     padding: 30px;
@@ -731,6 +739,16 @@ header.top-header {
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     border-top: 4px solid var(--vendo-blue); /* Branding accent */
     transition: transform 0.3s ease;
+}
+
+.detail-card.ausgabeschrank {
+    background: #ffffff;
+    padding: 20px; /* Reduced from 30px */
+    border-radius: 4px; /* Sharper corners look more industrial/pro */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Softer shadow */
+    border-top: 3px solid var(--vendo-blue);
+    display: flex;
+    flex-direction: column;
 }
 
 .detail-card:hover {
@@ -746,11 +764,46 @@ header.top-header {
     padding-bottom: 10px;
 }
 
+.detail-card h3.ausgabeschrank {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: var(--vendo-blue); /* Use brand color for title instead of black */
+    border-bottom: none; /* Remove the line to reduce visual clutter */
+}
+
 .detail-card ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
+
+
+.detail-card.ausgabeschrank ul {
+    margin-top: 5px;
+}
+
+.detail-card.ausgabeschrank li {
+    align-self: flex-start; 
+}
+
+.video-card-wrapper {
+    background: #000;
+    border-radius: 4px; /* Matches your ausgabeschrank cards */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Ensures it fills the grid row height */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-top: 3px solid var(--vendo-blue); /* Keeps the branding consistent */
+}
+
+.card-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the video fill the box like an image */
+}
+
 
 .detail-card ul li {
     padding-left: 20px;
@@ -792,7 +845,7 @@ header.top-header {
     /* This creates exactly 5 columns */
     grid-template-columns: repeat(5, 1fr); 
     gap: 10px;
-    padding: 20px 5%;
+    padding: 20px;
     background-color: #f9f9f9;
     align-items: stretch;
     max-width: 1400px;
@@ -803,7 +856,7 @@ header.top-header {
     background: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-direction: column; /* Stacks image, text, and button vertically */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -815,7 +868,8 @@ header.top-header {
 }
 
 .solution-image {
-    height: 180px; /* Fixed height for image area to keep alignment */
+    height: 230px; /* Fixed height for image area to keep alignment */
+    width: 210px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -824,7 +878,7 @@ header.top-header {
 
 .solution-image img {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 150%;
     object-fit: contain;
 }
 
