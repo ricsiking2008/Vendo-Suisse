@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Menbere:wght@300;400;600;700&display=swap');
+
 /* --- Grundlagen --- */
 :root {
-    --vendo-blue: #e98732;
+    --vendo-blue: #ff6035;
     --vendo-dark: #1a1a1a;
     --brushed-metal: linear-gradient(180deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
     --metal-hover: linear-gradient(180deg, #004a99 0%, #36a7d4 50%, #004a99 100%);
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: "Menbere", "Segoe UI", sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
@@ -105,8 +107,10 @@ header.top-header {
     text-decoration: none;
     color: #333;
     font-size: 14px;
-    font-weight: 700;
+    font-family: "Menbere", "Segoe UI", sans-serif;
+    font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
     background: var(--brushed-metal);
     display: flex;
     flex-direction: column;
@@ -181,15 +185,20 @@ header.top-header {
 }
 
 .hero-text-content h1 {
+    font-family: "Menbere", "Segoe UI", sans-serif;
     font-size: 48px;
     margin-bottom: 20px;
     text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.03em;
 }
 
 .hero-text-content p {
+    font-weight: 300;
     font-size: 20px;
     margin-bottom: 30px;
     opacity: 0.9;
+    line-height: 1.6;
 }
 
 /* THE CALL TO ACTION BUTTON */
@@ -199,7 +208,9 @@ header.top-header {
     background-color: #868684;
     color: white;
     text-decoration: none;
-    font-weight: 700;
+    font-family: "Menbere", "Segoe UI", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     border-radius: 4px;
     transition: transform 0.3s ease, background 0.3s ease;
 }
@@ -305,6 +316,8 @@ header.top-header {
 }
 
 .footer-container a { 
+    font-family: "Menbere", "Segoe UI", sans-serif;
+    font-weight: 400;
     color: #888; 
     margin: 0 15px; 
     text-decoration: none; 
@@ -321,10 +334,13 @@ header.top-header {
 
 
 .page-title h1 {
+    font-family: "Menbere", "Segoe UI", sans-serif;
     font-size: 26px; /* Kleiner für Kompaktheit */
     color: var(--vendo-dark);
     margin: 0;
     text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
 }
 
 .mainpage-title {
@@ -332,6 +348,12 @@ header.top-header {
     padding: 30px 5% 10px 5%; /* Flachere Überschrift */
     background-color: #ffffff;
     font-size: 12px;
+}
+
+.mainpage-title h1 {
+    font-family: "Menbere", "Segoe UI", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
 }
 
 .title-underline {
@@ -379,16 +401,19 @@ header.top-header {
 }
 
 .text-side h2 { 
+    font-family: "Menbere", "Segoe UI", sans-serif;
     font-size: 20px; 
     color: var(--vendo-blue); 
     margin-bottom: 8px; 
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: 0.01em;
 }
 
 .text-side p { 
-    line-height: 1.4; 
+    line-height: 1.65; 
     color: #444; 
-    font-size: 14px; 
+    font-size: 15px; 
+    font-weight: 300;
     margin-bottom: 0;
 }
 
@@ -668,6 +693,8 @@ header.top-header {
 .text-side h3 {
     margin-bottom: 20px;
     font-size: 18px;
+    font-family: "Menbere", "Segoe UI", sans-serif;
+    font-weight: 600;
 }
 
 
@@ -718,9 +745,11 @@ header.top-header {
     text-decoration: none;
     display: block;
     font-size: 13px;
+    font-family: "Menbere", "Segoe UI", sans-serif;
     text-align: left;
     text-transform: uppercase;
     font-weight: 600;
+    letter-spacing: 0.04em;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
@@ -735,9 +764,10 @@ header.top-header {
     color: white;
     padding: 12px 24px;
     font-size: 16px;
+    font-family: "Menbere", "Segoe UI", sans-serif;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.05em;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -792,10 +822,13 @@ header.top-header {
 }
 
 .detail-card h3 {
+    font-family: "Menbere", "Segoe UI", sans-serif;
     color: var(--vendo-dark);
     font-size: 18px;
     margin-bottom: 20px;
     text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
 }
@@ -845,7 +878,8 @@ header.top-header {
     padding-left: 20px;
     position: relative;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
+    font-weight: 300;
     color: #555;
     margin-bottom: 10px;
 }
@@ -862,7 +896,8 @@ header.top-header {
 /* Subtitle for the detail pages */
 .subtitle {
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-weight: 300;
     max-width: 90%;
     margin: 20px auto 0;
     color: #666;
@@ -872,7 +907,7 @@ header.top-header {
 /* Adjustments for the back button in nav */
 .main-navigation .nav-item {
     font-size: 13px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
     ;
 }
 
@@ -930,12 +965,15 @@ header.top-header {
     font-size: 1.1rem;
     margin-bottom: 12px;
     color: #333;
+    font-family: "Menbere", "Segoe UI", sans-serif;
+    font-weight: 600;
 }
 
 .solution-content p {
     font-size: 0.9rem;
     color: #666;
-    line-height: 1.5;
+    line-height: 1.65;
+    font-weight: 300;
     margin-bottom: 20px;
 }
 
@@ -954,8 +992,10 @@ header.top-header {
     padding: 10px 15px;
     text-decoration: none;
     border-radius: 4px;
-    font-weight: bold;
+    font-family: "Menbere", "Segoe UI", sans-serif;
+    font-weight: 600;
     font-size: 0.9rem;
+    letter-spacing: 0.04em;
     transition: background 0.2s;
 }
 
@@ -1555,4 +1595,5 @@ video {
         max-width: min(82vw, 1600px) !important;
     }
 }
+
 
